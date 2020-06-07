@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web-app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '8081:80'
+    restart: on-failure
+    container_name: web-app
+  to-do-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    restart: on-failure
+    container_name: to-do-api

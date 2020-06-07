@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+  pre_build:
+    commands:
+      - pip install -r requirements.txt
+      - docker login --username adilforms --password $PASSWORD
+  build:
+    commands:
+      - ls -al
+      - docker version
+      - docker image build -t anagram-final:latest .
+      - docker tag anagram-final:latest adilforms/anagram-final:latest
+  post_build:
+    commands:
+      - docker push adilforms/anagram-final:latest

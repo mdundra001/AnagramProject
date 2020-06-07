@@ -1,0 +1,7 @@
+version: 0.0
+os: linux
+files:
+  - source: ./backend/application.py
+    destination: 
+  - source: /
+    destination: /home/ec2-user/sample-app
